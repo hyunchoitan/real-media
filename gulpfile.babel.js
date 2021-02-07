@@ -4,6 +4,8 @@ import del from "del";
 import ws from "gulp-webserver";
 import img from "gulp-image";
 import sass from "gulp-sass";
+import autoP from "gulp-autoprefixer";
+import minify from "gulp-csso";
 
 sass.compiler = require('node-sass');
 
@@ -28,7 +30,7 @@ const pug = () => gulp.src(routes.pug.src).pipe(gpug()).pipe(gulp.dest(routes.pu
 
 const image = () => gulp.src(routes.img.src).pipe(img()).pipe(gulp.dest(routes.img.dest))
 
-const styles = () => gulp.src(routes.scss.src).pipe(sass().on('error', sass.logError)).pipe(gulp.dest(routes.scss.dest))
+const styles = () => gulp.src(routes.scss.src).pipe(sass().on('error', sass.logError)).pipe(autoP()).pipe(minify()).pipe(gulp.dest(routes.scss.dest))
 
 const watch = () => {
     gulp.watch(routes.pug.watch, pug);
