@@ -22,6 +22,10 @@
     "@babel/preset-env": "^7.12.13",
     "@babel/register": "^7.12.13",
     "gulp": "^4.0.2",
-    "gulp-pug": "^4.0.1"
+    "gulp-pug": "^4.0.1",
+    "gulp-webserver": "^0.9.1"
+  },
+  "dependencies": {
+    "del": "^6.0.0"
   }
 }
