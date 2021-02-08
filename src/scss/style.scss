@@ -19,6 +19,9 @@ a {
 header {
   width: 100%;
   height: 6vh;
+  position: fixed;
+  top: 0;
+  z-index: 1;
   font-size: 1.8rem;
   font-family: "Abril Fatface";
   background-color: white;
@@ -109,22 +112,34 @@ main {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       &:nth-child(even) {
-        img {
+        .img {
           order: -1;
         }
       }
       &:nth-child(2) {
+        .img {
+          @extend %image;
+          background-image: url("../img/media3.jpg");
+        }
         height: 100%;
         .button-wrapper {
           @extend %btnWrap;
         }
       }
       &:nth-child(3) {
+        .img {
+          @extend %image;
+          background-image: url("../img/media4.jpg");
+        }
         .button-wrapper {
           @extend %btnWrap;
         }
       }
       &:last-child {
+        .img {
+          @extend %image;
+          background-image: url("../img/media5.jpg");
+        }
         .button-wrapper {
           @extend %btnWrap;
         }
@@ -133,6 +148,7 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+        padding: 0 15px;
         h3 {
           @extend %smallTitle;
         }
@@ -143,9 +159,9 @@ main {
           @extend %btn;
         }
       }
-      img {
-        place-self: center center;
-        width: 90%;
+      .img {
+        @extend %image;
+        background-image: url("../img/media2.jpg");
       }
     }
   }
