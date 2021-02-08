@@ -1,5 +1,6 @@
 @import "_reset.scss";
 @import "_variables.scss";
+@import "_content.scss";
 @import url("https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Lato&display=swap");
 
 body {
@@ -71,34 +72,80 @@ main {
   .introduction {
     width: 100%;
     height: 60vh;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
     p {
       &::before {
         content: "About";
         padding-right: 4%;
-        font-size: 1.5rem;
-        font-weight: 700;
+        @extend %smallTitle;
       }
-      display: inline-block;
-      line-height: 1.5;
-      font-size: 2rem;
-      margin-bottom: 3vh;
+      @extend %paragraph;
     }
     button {
       display: flex;
       border: 0;
       background-color: white;
       justify-content: space-between;
+      cursor: pointer;
       align-items: center;
       width: 25%;
-      font-size: 1.5rem;
-      font-weight: 700;
+      @extend %smallTitle;
       transition: width 0.25s ease-in;
       i {
         font-size: 1.2rem;
       }
       &:hover {
         width: 25.5%;
+      }
+    }
+  }
+  .publication {
+    width: 100%;
+    display: grid;
+    grid-template-rows: repeat(4, 50vh);
+    article {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+      padding: 10px 0;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      &:nth-child(even) {
+        img {
+          order: -1;
+        }
+      }
+      &:nth-child(2) {
+        height: 100%;
+        .button-wrapper {
+          @extend %btnWrap;
+        }
+      }
+      &:nth-child(3) {
+        .button-wrapper {
+          @extend %btnWrap;
+        }
+      }
+      &:last-child {
+        .button-wrapper {
+          @extend %btnWrap;
+        }
+      }
+      .description {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        h3 {
+          @extend %smallTitle;
+        }
+        p {
+          @extend %paragraph;
+        }
+        button {
+          @extend %btn;
+        }
+      }
+      img {
+        place-self: center center;
+        width: 90%;
       }
     }
   }
