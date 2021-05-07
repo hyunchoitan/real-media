@@ -6,7 +6,8 @@ Static website for publishing company
 
 ## Demo Image
 
-![Demo Image]()
+![Demo Image]("./realMedia(1).png");
+![Demo Image]("./realMedia(2).png");
 
 ## Technologies
 
