@@ -2,6 +2,7 @@
 Static website for publishing company
 ## Deployment
 
+[github pages](https://hyunchoitan.github.io/real-media/)
 
 ## Demo Image
 

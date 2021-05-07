@@ -6,6 +6,7 @@ import img from "gulp-image";
 import sass from "gulp-sass";
 import autoP from "gulp-autoprefixer";
 import minify from "gulp-csso";
+import ghPages from "gulp-gh-pages"
 
 sass.compiler = require('node-sass');
 
@@ -43,7 +44,9 @@ const webserver = () => gulp.src("build").pipe(ws({
     open: true
 }))
 
-const clean = () => del(["build"])
+const clean = () => del(["build",".publish"])
+
+const publish = () => gulp.src("build/**/*").pipe(ghPages())
 
 const prepare = gulp.series([clean])
 
@@ -52,4 +55,7 @@ const live = gulp.parallel([webserver, watch])
 
 const assets = gulp.series([pug, image, styles]);
 
-export const dev = gulp.series([prepare,assets,live])
+
+export const build = gulp.series([prepare, assets])
+export const dev = gulp.series([build,live])
+export const deploy = gulp.series([build, publish, clean])
